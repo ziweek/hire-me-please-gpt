@@ -4,6 +4,7 @@ load_dotenv()
 import streamlit as st
 import streamlit as st
 from streamlit_pdf_viewer import pdf_viewer
+from streamlit_dimensions import st_dimensions
 
 from utils.model import run_llm
 
@@ -25,7 +26,7 @@ def load_yaml_file(path):
     return data
 
 
-st.set_page_config()
+st.set_page_config(initial_sidebar_state="expanded")
 
 user_name = "JIUK KIM"
 user_email = "alex.jiuk.kim@gmail.com"
@@ -58,7 +59,12 @@ with tab1:
             with st.expander("See Sources"):
                 st.text(sources_string)
 with tab2:
-    pdf_viewer(input="rag/src/resume-llm-engineer.pdf", width=700, render_text=True)
+    container_dim = st_dimensions(key="main")
+    pdf_viewer(
+        input="rag/src/resume-llm-engineer.pdf",
+        width=int(container_dim['width']) if container_dim else 400,
+        render_text=True
+        )
     
 
 
@@ -69,6 +75,15 @@ with tab2:
 #     return img
 
 
+css = '''
+<style>
+    [data-testid="stSidebar"]{
+        min-width: 350px;
+        max-width: 350px;
+    }
+</style>
+'''
+st.markdown(css, unsafe_allow_html=True)
 with st.sidebar:
     st.header("User Profile")
     with st.expander("Visit Analytics", expanded=False):
@@ -85,7 +100,7 @@ with st.sidebar:
     except:
         google_drive_url = "https://drive.google.com/uc?export=view&id=1459-NPm4sC50nrQRdjTpmpz_eKunIi04"
         img = google_drive_url
-    st.image(img, width=320)
+    st.image(img, width=300)
     st.markdown(
         body="""   
 <div align="center"> 
