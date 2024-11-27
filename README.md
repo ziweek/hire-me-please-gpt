@@ -2,7 +2,7 @@
 <br/>
 
 <p align="center">
-  <a href='https://my-dear-pass-usfk.vercel.app/'>
+  <a href='https://hire-me-please-gpt.streamlit.app'>
     <img src="https://img.shields.io/badge/Product-Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white"/>
   </a>
   <a href='https://colab.research.google.com/drive/13-VZyx3LiYPRS8aw-AcMSBK0Z4--TF2j?usp=sharing'>
