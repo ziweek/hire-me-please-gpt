@@ -10,6 +10,7 @@ from langchain import hub
 
 from langchain_community.vectorstores import FAISS
 from .embed import get_embeddings_gemini
+import streamlit as st
 
 import pprint
 
@@ -17,6 +18,7 @@ def run_llm(query: str):
     llm = GoogleGenerativeAI(
         model="gemini-1.5-flash",
         temperature=0,
+        api_key=st.secrets["GOOGLE_API_KEY"]
         )
     
     retrieval_qa_chat_prompt = hub.pull("langchain-ai/retrieval-qa-chat")
@@ -26,7 +28,7 @@ def run_llm(query: str):
     )
     
     vector_store = FAISS.load_local(
-        folder_path="faiss_index_HireMePleaseGPT",
+        folder_path="rag/faiss_index_HireMePleaseGPT",
         embeddings=get_embeddings_gemini(),
         allow_dangerous_deserialization=True
     )
