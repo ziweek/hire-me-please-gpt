@@ -1,2 +1,5 @@
 .env
 /faiss_index_HireMePleaseGPT
+secrets.toml
+
+.streamlit/
