@@ -58,7 +58,7 @@ with tab1:
             with st.expander("See Sources"):
                 st.text(sources_string)
 with tab2:
-    pdf_viewer(input="./src/resume-llm-engineer.pdf", width=700, render_text=True)
+    pdf_viewer(input="rag/src/resume-llm-engineer.pdf", width=700, render_text=True)
     
 
 
