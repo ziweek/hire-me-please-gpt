@@ -1,21 +1,21 @@
 # HireMePleaseGPT
+
+<table>
+  <tr>
+    <td style="width:1/2;">
+      <img src="./src/banner.png"/>
+    </td>
+  </tr>
+</table>
 <br/>
 
 <p align="center">
-  <a href='https://hire-me-please-gpt.streamlit.app'>
-    <img src="https://img.shields.io/badge/Product-Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white"/>
-  </a>
-  <a href='https://colab.research.google.com/drive/13-VZyx3LiYPRS8aw-AcMSBK0Z4--TF2j?usp=sharing'>
-    <img src="https://img.shields.io/badge/Tutorial-Google%20Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white"/>
-  </a>
-  <br/>
-  <br/>
-  <strong>The ultimate job-hunting sidekick that knows your resume better than you</strong>
+  <strong>The ultimate job-hunting sidekick that knows your resume better than you! :)</strong>
   <br/>
   <br/>
   <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white"/>
   <img src="https://img.shields.io/badge/LangSmith-1C3C3C?style=flat-square&logo=langchain&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Gemini%20API-8E75B2?style=flat-square&logo=googlegemini&logoColor=white"/>
   <br/>
   <img src="https://img.shields.io/badge/streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white"/>
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white"/>
@@ -23,52 +23,55 @@
 </p>
 <br/>
 
-<table>
-  <tr>
-    <td style="width:1/2;">
-      <img src="./src/screenshot_source_close.png"/>
-    </td>
-  </tr>
-</table>
+<p align="center">  
+  <strong>↓ Check out prototypes ↓<strong>
+  <br/>
+  <br/>
+  <a href='https://hire-me-please-gpt.streamlit.app'>
+    <img src="https://img.shields.io/badge/Product-Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white"/>
+  </a>
+  <a href='https://colab.research.google.com/drive/13-VZyx3LiYPRS8aw-AcMSBK0Z4--TF2j?usp=sharing'>
+    <img src="https://img.shields.io/badge/Tutorial-Google%20Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white"/>
+  </a>
+</p>
 <br/>
-
 
 # Introduction
 
-TACO (Two Armies Chat Once) aims to develop a chatbot powered by Retrieval-Augmented Generation (RAG) architecture using LangChain and Streamlit, designed to provide clear and accurate answers in both English and Korean.
-<br/>
-<details open>
- <summary><b>What's KATUSA</b></summary>
-  
-In South Korea, there is a unique military program known as KATUSA ([Korean Augmentation to the United States Army](https://en.wikipedia.org/wiki/Korean_Augmentation_to_the_United_States_Army)). Although KATUSA soldiers are South Korean citizens, they are assigned to U.S. Army units and operate under U.S. Army command.
-
-</details>
-<details open>
- <summary><b>Why do KATUSA soldiers need this?</b></summary>
-Due to the unique structure of KATUSA program, KATUSA soldiers are required to follow both U.S. Army regulations and ROK Army (Republic of Korea Army) regulations. However, these two sets of regulations are sometimes incompatible, leading to confusion about the cultural and procedural differences between the two military systems.
-<br/>
-</details>
+HireMePleaseGPT is a chatbot built using Retrieval-Augmented Generation (RAG) architecture, powered by LangChain and Streamlit. It is designed to deliver precise and clear answers by retrieving information from archives of resumes and projects.
 <br/>
 
+<details open>
+ <summary><b>Why do we need HireMePleaseGPT?</b></summary>
+In today’s bustling job market, recruiters often face the daunting challenge of sifting through mountains of resumes and projects with barely enough time to breathe, let alone dive deep. That’s where HireMePleaseGPT comes in—a simple yet genius solution to make life easier. Instead of painstakingly reading every word and deciphering the hidden treasures in a candidate’s resume, recruiters can now just ask HireMePleaseGPT anything they want to know. It’s like having a personal assistant who’s read every line for you and is ready with instant, meaningful insights—minus the coffee breaks!
+</details>
+<br/>
 
 # Implementation
 
-TACO (Two Armies Chat Once) aims to develop a chatbot powered by Retrieval-Augmented Generation (RAG) architecture using LangChain and Streamlit, designed to provide clear and accurate answers in both English and Korean.
-<br/>
-<details open>
- <summary><b>1st Trial > Fail - Used small LLM (llama3.2:1b) for bilingual translation</b></summary>
-In South Korea, there is a unique military program known as KATUSA ([Korean Augmentation to the United States Army](https://en.wikipedia.org/wiki/Korean_Augmentation_to_the_United_States_Army)). Although KATUSA soldiers are South Korean citizens, they are assigned to U.S. Army units and operate under U.S. Army command.
+<table>
+  <tr>
+    <td style="width:1/2;">
+      <img src="./src/diagram.png"/>
+    </td>
+  </tr>
+</table>
 
-</details>
 <details open>
-  <summary><b>2nd Trial > Fail - Used pre-trained LLM (Llama-3-Open-Ko-8B-Q5_K_M) for bilingual translation</b></summary>
-Due to the unique structure of KATUSA program, KATUSA soldiers are required to follow both U.S. Army regulations and ROK Army (Republic of Korea Army) regulations. However, these two sets of regulations are sometimes incompatible, leading to confusion about the cultural and procedural differences between the two military systems.
-<br/>
+ <summary><b>Retrieval-Augmented Generation</b></summary>
+HireMePleaseGPT is build as a RAG architecture, powered by LangChain, Google Gemini API, and FAISS vector database. Text from resume or cover letter is ingested to the FAISS vector database as soon as Google Gemini API embedded it into words or subwords. LangChain 
 </details>
-<details open>
- <summary><b>Final Trial > Sucess - Used fine-tuned LLM (Llama-3-Open-Ko-8B-Q5_K_M) for bilingual translation</b></summary>
-Due to the unique structure of KATUSA program, KATUSA soldiers are required to follow both U.S. Army regulations and ROK Army (Republic of Korea Army) regulations. However, these two sets of regulations are sometimes incompatible, leading to confusion about the cultural and procedural differences between the two military systems.
 <br/>
+
+<details open>
+ <summary><b>Google Gemini API</b></summary>
+HireMePleaseGPT utilizes the Google Gemini API to embed text from resumes and generate responses. It employs “model/text-embedding-004” and “Gemini-1.5-flash,” both available under the free plan, offering sufficient computational performance for a RAG architecture tailored to processing single or double-page PDF documents, such as resumes and cover letters.
+</details>
+<br/>
+
+<details open>
+  <summary><b>Powered by Streamlit</b></summary>
+HireMePleaseGPT is deployed on the Streamlit.io platform. Steamlit framework provided well-built user-friendly UIUX blocks 
 </details>
 <br/>
 

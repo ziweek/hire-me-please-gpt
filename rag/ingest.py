@@ -3,13 +3,13 @@ load_dotenv()
 
 from langchain_community.vectorstores import FAISS
 
-from utils.loader import load_pdf
+from utils.loader import load_local_pdf, load_online_pdf
 from utils.splitter import split_documents
 from utils.embed import get_embeddings_gemini
 
 
 def ingest_documents(file_path):
-    raw_documents = load_pdf(file_path=file_path)
+    raw_documents = load_local_pdf(file_path=file_path)
     splitted_documents = split_documents(raw_documents=raw_documents)
     embeddings_huggingface = get_embeddings_gemini()
     
@@ -24,7 +24,7 @@ def ingest_documents(file_path):
 def ingest_multiple_documents(dict_documents: dict):
     loaded_documents = []
     for document, file_path in dict_documents.items():
-        loaded_document = load_pdf(file_path=file_path)
+        loaded_document = load_local_pdf(file_path=file_path)
         loaded_documents.extend(loaded_document)
         print(f"Splitted {document}")
     splitted_documents = split_documents(raw_documents=loaded_documents)
