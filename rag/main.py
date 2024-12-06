@@ -52,7 +52,7 @@ with tab1:
 with tab2:
     container_dim = st_dimensions(key="main")
     pdf_viewer(
-        input=load_yaml_file("config.yaml")['resume_file_path'],
+        input=user_data['resume_file_path'],
         width=int(container_dim['width']) if container_dim else 400,
         render_text=True
         )
