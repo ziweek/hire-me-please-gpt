@@ -7,31 +7,22 @@ from streamlit_pdf_viewer import pdf_viewer
 from streamlit_dimensions import st_dimensions
 
 from utils.model import run_llm
+from utils.utils import load_yaml_file
 
 import pprint
 import requests
 import json
 
-import json
-import yaml
 
-def read_file(file_path):
-    with open(file_path, 'r') as f:
-        data = f.read()
-    return data
-
-def load_yaml_file(path):
-    with open(path, 'r') as f:
-        data = yaml.load(f, Loader=yaml.FullLoader)
-    return data
 
 
 st.set_page_config(initial_sidebar_state="expanded")
 
-user_name = "JIUK KIM"
-user_email = "alex.jiuk.kim@gmail.com"
-user_github = "https://github.com/ziweek"
-user_linkedin = "https://www.linkedin.com/in/ziweek"
+user_data = load_yaml_file("config.yaml")
+user_name = user_data['name']
+user_email = user_data["email"]
+user_github = user_data["github"]
+user_linkedin = user_data["linkedin"]
 
 
 # st.subheader(f"{user_name}")
@@ -61,18 +52,11 @@ with tab1:
 with tab2:
     container_dim = st_dimensions(key="main")
     pdf_viewer(
-        input="rag/src/resume-llm-engineer.pdf",
+        input=load_yaml_file("config.yaml")['resume_file_path'],
         width=int(container_dim['width']) if container_dim else 400,
         render_text=True
         )
     
-
-
-# def get_profile_picture(url):
-#     github_user_api_response = requests.get(url)
-#     github_user_api_result = json.loads(github_user_api_response.content)
-#     img = github_user_api_result["avatar_url"]
-#     return img
 
 
 css = '''
