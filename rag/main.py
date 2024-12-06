@@ -18,7 +18,7 @@ import json
 
 st.set_page_config(initial_sidebar_state="expanded")
 
-user_data = load_yaml_file("config.yaml")
+user_data = load_yaml_file("rag/config.yaml")
 user_name = user_data['name']
 user_email = user_data["email"]
 user_github = user_data["github"]
