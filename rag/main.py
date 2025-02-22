@@ -40,7 +40,7 @@ with tab1:
     if prompt:
         with st.spinner("Generating reponse..."):
             
-            generated_response = run_llm(query=prompt)
+            generated_response = run_llm(query=prompt, api_key=GOOGLE_API_KEY)
             # pprint.pprint(generated_response)
             
             documents_metadata_source = list([document.metadata["source"].replace("rag/src/", "") for document in generated_response["context"]])
