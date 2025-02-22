@@ -2,14 +2,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-import streamlit as st
-import os
 
 
-def get_embeddings_gemini():
+def get_embeddings_gemini(api_key):
     embeddings_genai = GoogleGenerativeAIEmbeddings(
         model="models/text-embedding-004",
-        # google_api_key=os.environ.get("GOOGLE_API_KEY")
-        google_api_key=st.secrets["GOOGLE_API_KEY"]
+        google_api_key=api_key
     )
     return embeddings_genai

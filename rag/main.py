@@ -2,18 +2,24 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import streamlit as st
-import streamlit as st
 from streamlit_pdf_viewer import pdf_viewer
 from streamlit_dimensions import st_dimensions
 
 from utils.model import run_llm
 from utils.utils import load_yaml_file
 
-import pprint
 import requests
 import json
+import argparse
+import os
 
-
+parser = argparse.ArgumentParser(description='env')
+parser.add_argument('--env', required=False, help='Run locally')
+args = parser.parse_args()
+if args.env == "local":
+    GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+else:
+    GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 
 
 st.set_page_config(initial_sidebar_state="expanded")
@@ -23,10 +29,6 @@ user_name = user_data['name']
 user_email = user_data["email"]
 user_github = user_data["github"]
 user_linkedin = user_data["linkedin"]
-
-
-# st.subheader(f"{user_name}")
-# st.text("A machine learning engineer specializing in multilingual NLP solutions, with expertise in developing scalable applications and enhancing global user experiences.")
 
 
 st.title("HireMePleaseGPT")
